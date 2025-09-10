@@ -1,0 +1,122 @@
+<svg width="350" height="250" viewBox="0 0 350 250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="chart-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="prediction-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#eab308;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="350" height="250" fill="url(#bg-gradient)" rx="8"/>
+  
+  <!-- Chart Background -->
+  <g transform="translate(50, 70)">
+    <rect x="0" y="0" width="250" height="130" fill="#1e293b" stroke="url(#chart-gradient)" stroke-width="2" rx="4"/>
+    
+    <!-- Chart Grid -->
+    <g stroke="#475569" stroke-width="0.5" opacity="0.5">
+      <!-- Horizontal lines -->
+      <line x1="20" y1="25" x2="230" y2="25"/>
+      <line x1="20" y1="50" x2="230" y2="50"/>
+      <line x1="20" y1="75" x2="230" y2="75"/>
+      <line x1="20" y1="100" x2="230" y2="100"/>
+      
+      <!-- Vertical lines -->
+      <line x1="50" y1="15" x2="50" y2="110"/>
+      <line x1="90" y1="15" x2="90" y2="110"/>
+      <line x1="130" y1="15" x2="130" y2="110"/>
+      <line x1="170" y1="15" x2="170" y2="110"/>
+      <line x1="210" y1="15" x2="210" y2="110"/>
+    </g>
+    
+    <!-- Historical Data Line (blue) -->
+    <path d="M 20 90 Q 30 85 40 80 T 60 75 T 80 70 T 100 65 T 120 60 T 140 55" 
+          stroke="url(#chart-gradient)" stroke-width="3" fill="none" filter="url(#glow)"/>
+    
+    <!-- Data points for historical data -->
+    <g fill="#22d3ee">
+      <circle cx="20" cy="90" r="2"/>
+      <circle cx="40" cy="80" r="2"/>
+      <circle cx="60" cy="75" r="2"/>
+      <circle cx="80" cy="70" r="2"/>
+      <circle cx="100" cy="65" r="2"/>
+      <circle cx="120" cy="60" r="2"/>
+      <circle cx="140" cy="55" r="2"/>
+    </g>
+    
+    <!-- Prophet Prediction Line (orange/yellow) -->
+    <path d="M 140 55 Q 150 50 160 48 T 180 45 T 200 42 T 220 40" 
+          stroke="url(#prediction-gradient)" stroke-width="3" fill="none" stroke-dasharray="5,3" filter="url(#glow)"/>
+    
+    <!-- Prediction confidence band -->
+    <path d="M 140 55 Q 150 48 160 46 T 180 43 T 200 40 T 220 38 L 220 42 Q 200 44 180 47 T 160 50 T 150 52 Z" 
+          fill="url(#prediction-gradient)" opacity="0.2"/>
+    
+    <!-- Prediction points -->
+    <g fill="#f59e0b">
+      <circle cx="160" cy="48" r="2"/>
+      <circle cx="180" cy="45" r="2"/>
+      <circle cx="200" cy="42" r="2"/>
+      <circle cx="220" cy="40" r="2"/>
+    </g>
+    
+    <!-- Prophet Logo/Icon -->
+    <g transform="translate(10, 10)">
+      <circle cx="8" cy="8" r="8" fill="url(#prediction-gradient)"/>
+      <text x="8" y="12" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">P</text>
+    </g>
+    
+    <!-- Axis labels -->
+    <text x="125" y="125" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">Tiempo</text>
+    <text x="8" y="65" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10" transform="rotate(-90, 8, 65)">Ventas</text>
+    
+    <!-- Time period labels -->
+    <text x="80" y="120" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="8">Histórico</text>
+    <text x="180" y="120" text-anchor="middle" fill="#f59e0b" font-family="Arial, sans-serif" font-size="8">Predicción</text>
+  </g>
+  
+  <!-- Meta Prophet Badge -->
+  <g transform="translate(20, 20)">
+    <rect x="0" y="0" width="80" height="25" fill="url(#prediction-gradient)" rx="12"/>
+    <text x="40" y="17" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Meta Prophet</text>
+  </g>
+  
+  <!-- Performance Metrics -->
+  <g transform="translate(270, 20)">
+    <rect x="0" y="0" width="65" height="40" fill="#1e293b" stroke="url(#chart-gradient)" stroke-width="1" rx="4"/>
+    <text x="32" y="12" text-anchor="middle" fill="#22d3ee" font-family="Arial, sans-serif" font-size="8">Precisión</text>
+    <text x="32" y="24" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">94.7%</text>
+    <text x="32" y="35" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="7">MAPE</text>
+  </g>
+  
+  <!-- Trend indicators -->
+  <g transform="translate(320, 90)">
+    <!-- Upward trend arrow -->
+    <path d="M 5 15 L 10 5 L 15 15 L 12 15 L 12 25 L 8 25 L 8 15 Z" fill="url(#prediction-gradient)"/>
+    <text x="10" y="35" text-anchor="middle" fill="#f59e0b" font-family="Arial, sans-serif" font-size="8">Tendencia</text>
+    <text x="10" y="44" text-anchor="middle" fill="#f59e0b" font-family="Arial, sans-serif" font-size="8">Positiva</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="175" y="30" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Prophet Sales Forecasting</text>
+  <text x="175" y="50" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Time Series Prediction Model</text>
+</svg>

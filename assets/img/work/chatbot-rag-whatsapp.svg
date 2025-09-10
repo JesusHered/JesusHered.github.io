@@ -1,0 +1,137 @@
+<svg width="350" height="250" viewBox="0 0 350 250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="whatsapp-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#25d366;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#128c7e;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="ai-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="350" height="250" fill="url(#bg-gradient)" rx="8"/>
+  
+  <!-- WhatsApp Phone (left side) -->
+  <g transform="translate(30, 60)">
+    <!-- Phone outline -->
+    <rect x="0" y="0" width="70" height="120" fill="#1e293b" stroke="url(#whatsapp-gradient)" stroke-width="2" rx="8"/>
+    
+    <!-- Screen -->
+    <rect x="8" y="15" width="54" height="90" fill="#075e54" rx="4"/>
+    
+    <!-- WhatsApp header -->
+    <rect x="8" y="15" width="54" height="12" fill="url(#whatsapp-gradient)" rx="4 4 0 0"/>
+    
+    <!-- Chat bubbles -->
+    <g transform="translate(12, 35)">
+      <!-- User message -->
+      <rect x="25" y="0" width="20" height="8" fill="#dcf8c6" rx="4"/>
+      <text x="35" y="5" text-anchor="middle" fill="#075e54" font-family="Arial, sans-serif" font-size="3">Consulta</text>
+      
+      <!-- Bot response -->
+      <rect x="1" y="15" width="35" height="12" fill="#ffffff" rx="4"/>
+      <text x="18" y="20" text-anchor="middle" fill="#075e54" font-family="Arial, sans-serif" font-size="3">Respuesta IA</text>
+      <text x="18" y="23" text-anchor="middle" fill="#075e54" font-family="Arial, sans-serif" font-size="3">con datos</text>
+      
+      <!-- Another user message -->
+      <rect x="20" y="35" width="25" height="8" fill="#dcf8c6" rx="4"/>
+      <text x="32" y="40" text-anchor="middle" fill="#075e54" font-family="Arial, sans-serif" font-size="3">Más preguntas</text>
+    </g>
+    
+    <!-- Phone speaker -->
+    <rect x="25" y="5" width="20" height="2" fill="#64748b" rx="1"/>
+  </g>
+  
+  <!-- RAG System (center) -->
+  <g transform="translate(140, 80)">
+    <!-- Main AI circle -->
+    <circle cx="35" cy="35" r="30" fill="url(#ai-gradient)" filter="url(#glow)"/>
+    <text x="35" y="32" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">RAG</text>
+    <text x="35" y="44" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">System</text>
+    
+    <!-- Vector database nodes around -->
+    <g fill="#22d3ee" opacity="0.8">
+      <circle cx="10" cy="15" r="4"/>
+      <circle cx="60" cy="20" r="4"/>
+      <circle cx="55" cy="55" r="4"/>
+      <circle cx="15" cy="60" r="4"/>
+      <circle cx="35" cy="5" r="4"/>
+      <circle cx="5" cy="40" r="4"/>
+    </g>
+    
+    <!-- Connection lines -->
+    <g stroke="#22d3ee" stroke-width="1" opacity="0.5">
+      <line x1="10" y1="15" x2="25" y2="25"/>
+      <line x1="60" y1="20" x2="45" y2="30"/>
+      <line x1="55" y1="55" x2="45" y2="45"/>
+      <line x1="15" y1="60" x2="25" y2="50"/>
+      <line x1="35" y1="5" x2="35" y2="20"/>
+      <line x1="5" y1="40" x2="20" y2="40"/>
+    </g>
+  </g>
+  
+  <!-- Vector Database (right side) -->
+  <g transform="translate(250, 70)">
+    <rect x="0" y="0" width="70" height="90" fill="#1e293b" stroke="url(#ai-gradient)" stroke-width="2" rx="4"/>
+    
+    <!-- Database layers -->
+    <ellipse cx="35" cy="15" rx="25" ry="6" fill="url(#ai-gradient)"/>
+    <ellipse cx="35" cy="35" rx="25" ry="6" fill="url(#ai-gradient)"/>
+    <ellipse cx="35" cy="55" rx="25" ry="6" fill="url(#ai-gradient)"/>
+    
+    <!-- Vector representations -->
+    <g transform="translate(20, 25)">
+      <circle cx="0" cy="0" r="1" fill="#22d3ee"/>
+      <circle cx="5" cy="2" r="1" fill="#22d3ee"/>
+      <circle cx="10" cy="-1" r="1" fill="#22d3ee"/>
+      <circle cx="15" cy="3" r="1" fill="#22d3ee"/>
+      <circle cx="20" cy="1" r="1" fill="#22d3ee"/>
+      <circle cx="25" cy="-2" r="1" fill="#22d3ee"/>
+      <circle cx="30" cy="2" r="1" fill="#22d3ee"/>
+    </g>
+    
+    <text x="35" y="80" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="8">Vector DB</text>
+  </g>
+  
+  <!-- Connection arrows -->
+  <g>
+    <defs>
+      <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#22d3ee"/>
+      </marker>
+    </defs>
+    
+    <!-- WhatsApp to RAG -->
+    <path d="M 110 120 Q 125 120 135 120" stroke="#25d366" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- RAG to Vector DB -->
+    <path d="M 210 120 Q 225 120 240 120" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- Vector DB back to RAG -->
+    <path d="M 245 135 Q 230 140 215 135" stroke="#3b82f6" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- RAG back to WhatsApp -->
+    <path d="M 140 135 Q 125 140 115 135" stroke="#25d366" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="175" y="30" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">RAG Chatbot WhatsApp</text>
+  <text x="175" y="50" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Vector Search + AI Assistant</text>
+</svg>

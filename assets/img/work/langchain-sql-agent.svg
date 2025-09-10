@@ -1,0 +1,92 @@
+<svg width="350" height="250" viewBox="0 0 350 250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accent-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="350" height="250" fill="url(#bg-gradient)" rx="8"/>
+  
+  <!-- Database icon (left side) -->
+  <g transform="translate(40, 80)">
+    <rect x="0" y="0" width="60" height="80" fill="#475569" rx="4"/>
+    <ellipse cx="30" cy="0" rx="30" ry="8" fill="url(#accent-gradient)"/>
+    <ellipse cx="30" cy="80" rx="30" ry="8" fill="url(#accent-gradient)"/>
+    <rect x="0" y="0" width="60" height="80" fill="none" stroke="url(#accent-gradient)" stroke-width="2" rx="4"/>
+    
+    <!-- Data lines -->
+    <line x1="15" y1="25" x2="45" y2="25" stroke="#22d3ee" stroke-width="2"/>
+    <line x1="15" y1="35" x2="40" y2="35" stroke="#22d3ee" stroke-width="2"/>
+    <line x1="15" y1="45" x2="35" y2="45" stroke="#22d3ee" stroke-width="2"/>
+    <line x1="15" y1="55" x2="42" y2="55" stroke="#22d3ee" stroke-width="2"/>
+  </g>
+  
+  <!-- AI Brain/Connection (center) -->
+  <g transform="translate(150, 90)">
+    <circle cx="25" cy="25" r="25" fill="url(#accent-gradient)" filter="url(#glow)"/>
+    <text x="25" y="32" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">AI</text>
+    
+    <!-- Neural network nodes -->
+    <circle cx="10" cy="10" r="3" fill="#22d3ee"/>
+    <circle cx="40" cy="15" r="3" fill="#22d3ee"/>
+    <circle cx="35" cy="40" r="3" fill="#22d3ee"/>
+    <circle cx="15" cy="35" r="3" fill="#22d3ee"/>
+    
+    <!-- Connections -->
+    <line x1="10" y1="10" x2="22" y2="20" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+    <line x1="40" y1="15" x2="30" y2="22" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+    <line x1="35" y1="40" x2="28" y2="30" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+    <line x1="15" y1="35" x2="22" y2="28" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
+  </g>
+  
+  <!-- SQL Query output (right side) -->
+  <g transform="translate(240, 70)">
+    <rect x="0" y="0" width="80" height="100" fill="#1e293b" stroke="url(#accent-gradient)" stroke-width="2" rx="4"/>
+    
+    <!-- SQL text simulation -->
+    <text x="8" y="20" fill="#22d3ee" font-family="monospace" font-size="10">SELECT *</text>
+    <text x="8" y="35" fill="#22d3ee" font-family="monospace" font-size="10">FROM users</text>
+    <text x="8" y="50" fill="#22d3ee" font-family="monospace" font-size="10">WHERE...</text>
+    
+    <!-- Data results -->
+    <rect x="8" y="60" width="64" height="2" fill="#3b82f6"/>
+    <rect x="8" y="67" width="50" height="2" fill="#3b82f6"/>
+    <rect x="8" y="74" width="58" height="2" fill="#3b82f6"/>
+    <rect x="8" y="81" width="45" height="2" fill="#3b82f6"/>
+  </g>
+  
+  <!-- Connection arrows -->
+  <g stroke="url(#accent-gradient)" stroke-width="2" fill="none" marker-end="url(#arrowhead)">
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/>
+      </marker>
+    </defs>
+    
+    <!-- Database to AI -->
+    <path d="M 110 120 Q 130 120 140 120" stroke="#22d3ee" stroke-width="2"/>
+    
+    <!-- AI to SQL output -->
+    <path d="M 210 120 Q 220 120 230 120" stroke="#22d3ee" stroke-width="2"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="175" y="30" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">LangChain SQL Agent</text>
+  <text x="175" y="50" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Automated Database Queries</text>
+</svg>
